@@ -1,115 +1,189 @@
-html {
-  font-size: 14px;
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  3. Allow percentage-based heights in the application
+*/
+html,
 body {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 100%;
+}
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  7. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  8. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
 
+h1,
+h2,
+h3 {
+  line-height: 1;
+}
+
+/* -------------------------------- */
+
+body {
   font-family: "Montserrat", sans-serif;
-
   background-color: hsl(30, 38%, 92%);
 }
 
-.container {
-  width: 40%;
-
-  display: flex;
-  flex-direction: row;
-
-  border: none;
-  border-radius: 1.5%;
-  overflow: hidden;
-}
-
-.image {
-  width: 50%;
-}
-
-.image img {
+.product-container {
   width: 100%;
+  max-width: 800px;
+  margin: 100px auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  overflow: hidden;
+  border: none;
+  border-radius: 2%;
+  background-color: white;
 }
 
-.review {
-  width: 50%;
-  position: relative;
-
-  padding: 2rem 2rem;
-  box-sizing: content-box;
-
-  background-color: white;
-
+.product-main {
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
+  padding: 2em;
 }
 
-.review h2 {
-  margin: 0.1rem 0;
+.product-type {
+  opacity: 70%;
+  letter-spacing: 4px;
+}
+
+h1 {
   font-family: "Fraunces", serif;
-  font-size: 3.5rem;
-  font-weight: bolder;
+  font-size: 2.5rem;
 }
 
-p.text {
-  letter-spacing: 0.1rem;
-  line-height: 2.4rem;
-  font-size: 1.6rem;
-  font-family: "Montserrat", sans-serif;
-  font-weight: lighter;
-  color: hsl(228, 12%, 48%);
-
-  padding: 0.2rem 0;
+.product-text {
+  font-size: 1.2rem;
+  opacity: 70%;
 }
-p.mrp {
+
+.price {
+  width: 100%;
+  display: flex;
+  gap: 0.5rem;
+}
+.price-sale {
+  color: hsl(158, 36%, 37%);
+  font-family: "Fraunces", serif;
+  font-size: 2rem;
+}
+.price-list {
+  text-decoration: line-through;
+  opacity: 70%;
+}
+
+.btn-cart {
+  background-color: hsl(158, 36%, 37%);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 0.5em 0;
   position: relative;
 }
-p span.cost {
-  padding-right: 1rem;
-  color: #14746f;
-  font-size: 4rem;
-  font-family: "Fraunces", serif;
-}
 
-p span.strike {
-  color: hsl(228, 12%, 48%);
-
-  font-size: 1.7rem;
-  text-decoration: line-through;
-  text-underline-offset: 5px;
-
+.btn-cart img {
+  width: 5%;
   position: absolute;
-  bottom: 35%;
-  right: 25%;
+  left: 4em;
+  top: 16px;
 }
 
-p.perfume {
-  letter-spacing: 7px;
-  font-size: 1.3rem;
-  color: hsl(228, 12%, 48%);
-  margin-bottom: 0;
+.btn-cart:hover {
+  cursor: grab;
 }
 
-.review .cart {
-  width: 80%;
-  text-align: center;
-  font-weight: bold;
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.5rem;
-
-  border-radius: 0.5rem;
-  border: none;
-  padding: 1.2rem 0;
-
-  position: absolute;
-  left: 10%;
-  bottom: 5%;
-
-  color: white;
-  background-color: #14746f;
-}
-
-.cart img {
-  width: 1.4rem;
-  padding-right: 1.2rem;
+@media (max-width: 550px) {
+  .product-container {
+    width: 90%;
+    max-width: 390px;
+    margin: 100px auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: space-evenly;
+  }
+  .product-main {
+    padding: 1em 2em;
+  }
+  h1 {
+    font-size: 1.9rem;
+    margin: 9px 0;
+  }
+  .product-text {
+    font-size: 1rem;
+    line-height: 20px;
+  }
+  .price {
+    max-width: 5px 0;
+  }
+  .price-sale {
+    font-size: 1.7rem;
+  }
+  .price-list {
+    font-size: 0.8rem;
+  }
+  .btn-cart {
+    font-size: 1rem;
+    position: relative;
+  }
+  .btn-cart img {
+    width: 4%;
+    position: absolute;
+    left: 5em;
+    top: 16px;
+  }
 }
