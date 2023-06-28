@@ -75,8 +75,7 @@ body {
 }
 
 .product-container {
-  width: 100%;
-  max-width: 800px;
+  max-width: 700px;
   margin: 100px auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -87,11 +86,15 @@ body {
   background-color: white;
 }
 
+.product-image {
+  width: 100%;
+}
+
 .product-main {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  padding: 2em;
+  padding: 1rem;
 }
 
 .product-type {
@@ -101,11 +104,13 @@ body {
 
 h1 {
   font-family: "Fraunces", serif;
+  font-weight: 900;
   font-size: 2.5rem;
+  padding-right: 2rem;
 }
 
 .product-text {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   opacity: 70%;
 }
 
@@ -122,6 +127,7 @@ h1 {
 .price-list {
   text-decoration: line-through;
   opacity: 70%;
+  font-size: 0.9rem;
 }
 
 .btn-cart {
@@ -145,12 +151,13 @@ h1 {
 
 .btn-cart:hover {
   cursor: grab;
+  background-color: #386641;
 }
 
 @media (max-width: 550px) {
   .product-container {
     width: 90%;
-    max-width: 390px;
+    max-width: 375px;
     margin: 100px auto;
     display: grid;
     grid-template-columns: 1fr;
@@ -182,7 +189,7 @@ h1 {
   }
   .btn-cart img {
     width: 4%;
-    position: absolute;
+    position: fixed;
     left: 5em;
     top: 16px;
   }
